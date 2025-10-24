@@ -1,37 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:samatoll/controller/navigation_controller.dart';
+import 'package:samatoll/controller/weather_controller.dart';
+import 'package:samatoll/model/weather.dart';
 import 'package:samatoll/screens/home_screen.dart';
 import 'package:samatoll/widgets/my_map.dart';
 
 class DashboardScreen extends StatelessWidget {
+  DashboardScreen({Key? key}) : super(key: key);
+  final WeatherController _weatherController = Get.put(WeatherController());
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Header avec info utilisateur
-            _buildUserHeader(),
-            SizedBox(height: 20),
-
-            // Stats cards
-            _buildStatsCards(),
-            SizedBox(height: 20),
-
-            // Section meteo
-            _buildWeatherSection(),
-            SizedBox(height: 20),
-
-            // Actions rapides
-            _buildQuickActions(),
-            SizedBox(height: 20),
-
-            _buildMapSection(),
-            SizedBox(height: 20),
-          ],
+    return Obx(()
+      => SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Header avec info utilisateur
+              _buildUserHeader(),
+              SizedBox(height: 20),
+      
+              // Stats cards
+              _buildStatsCards(),
+              SizedBox(height: 20),
+      
+              // Section meteo
+              _buildWeatherSection(),
+              SizedBox(height: 20),
+      
+              // Actions rapides
+              _buildQuickActions(),
+              SizedBox(height: 20),
+      
+              _buildMapSection(),
+              SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
@@ -108,7 +114,7 @@ class DashboardScreen extends StatelessWidget {
         SizedBox(width: 12),
         Expanded(
           child: _buildStatCard(
-            '28°C',
+            '${ _weatherController.weather.value?.main.temp.round()}°C',
             'Temperature',
             Icons.thermostat,
             Colors.orange,
@@ -158,9 +164,12 @@ class DashboardScreen extends StatelessWidget {
 
   Widget _buildMapSection() {
     return Container(
-      height: 100,
-      width: 800,
-      decoration: BoxDecoration(border: Border.all(color: Colors.green)),
+      height: 200,
+      // width: 800,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.green, width: 1),
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: MyMap(),
     );
   }
@@ -190,9 +199,10 @@ class DashboardScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildWeatherItem(Icons.water_drop, '65%', 'Humidite'),
-              _buildWeatherItem(Icons.cloud, '5mm', 'Pluie'),
-              _buildWeatherItem(Icons.air, '12km/h', 'Vent'),
+              _buildWeatherItem(Icons.water_drop,
+              _weatherController.weather.value?.main.humidity !=null ? '${_weatherController.weather.value?.main.humidity}%':' ' , 'Humidite'),
+              _buildWeatherItem( _weatherController.weather.value?.weather[0].main !=null ? weatherIcons[_weatherController.weather.value!.weather[0].main]?? Icons.cloud :Icons.cloud,  _weatherController.weather.value?.weather[0].main !=null ? '${_weatherController.weather.value!.weather[0].main}':' ', 'Météo'),
+              _buildWeatherItem(Icons.air,  _weatherController.weather.value?.wind.speed !=null ? '${(_weatherController.weather.value!.wind.speed * 3.6).toStringAsFixed(1)} Km/h':' ', 'Vent'),
             ],
           ),
         ],

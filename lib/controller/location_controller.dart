@@ -7,6 +7,12 @@ class LocationController extends GetxController {
   RxDouble currentLongitude = 0.0.obs;
   final RxBool isLoading = false.obs;
 
+  @override
+  void onInit() {
+    super.onInit();
+    getCurrentLocation();
+  }
+
   Future<void> getCurrentLocation() async {
     isLoading.value = true;
     try {
@@ -17,7 +23,7 @@ class LocationController extends GetxController {
     } catch (e) {
       print('Une erreur est survenue : $e');
       Get.snackbar('Erreur', "${e.toString()}");
-    } finally {
+    } finally { 
       isLoading.value = false;
     }
   }

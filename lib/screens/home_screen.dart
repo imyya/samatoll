@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:samatoll/controller/navigation_controller.dart';
+import 'package:samatoll/screens/chat_screen.dart';
 import 'package:samatoll/screens/dashboard.dart';
 import 'package:samatoll/screens/graphics_screen.dart';
 import 'package:samatoll/screens/notification_screen.dart';
@@ -13,6 +14,7 @@ class HomeScreen extends StatelessWidget {
 
   final List<Widget> _screens = [
     DashboardScreen(),
+    ChatScreen(),
     GraphiquesScreen(),
     NotificationsScreen(),
     CulturesScreen(),
@@ -20,6 +22,7 @@ class HomeScreen extends StatelessWidget {
 
   final List<String> _titles = [
     'Tableau de bord',
+    'SamaToll Agent',
     'Graphiques',
     'Notifications',
     'Mes Cultures',
@@ -114,6 +117,11 @@ class HomeScreen extends StatelessWidget {
               icon: Icon(Icons.dashboard),
               activeIcon: Icon(Icons.dashboard, size: 28),
               label: 'Dashboard',
+            ),
+             BottomNavigationBarItem(
+              icon: Icon(Icons.chat_bubble_outline),
+              activeIcon: Icon(Icons.chat_bubble, size: 28),
+              label: 'Chat ',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.trending_up),

@@ -12,28 +12,43 @@ class MyMap extends StatefulWidget {
 class _MyMapState extends State<MyMap> {
   final LocationController _locationController = Get.put(LocationController());
   GoogleMapController? mapController;
+  // late LatLng startLocation;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => GoogleMap(
-        onMapCreated: (GoogleMapController controller) {
-          mapController = controller;
-        },
-        initialCameraPosition: CameraPosition(
-          target: LatLng(
-            _locationController.currentLatitude.value,
-            _locationController.currentLongitude.value,
-          ),
-          zoom: 14.0,
-        ),
-        myLocationEnabled: true,
-        myLocationButtonEnabled: true,
-        mapType: MapType.normal,
-        zoomControlsEnabled: true,
-        zoomGesturesEnabled: true,
-      ),
+    return Obx(() {
+      if (_locationController.currentLatitude.value == 0.0 &&
+          _locationController.currentLongitude.value == 0.0) {
+        return const Center(child: CircularProgressIndicator());
+      } else {
+        final startLocation = LatLng(
+      _locationController.currentLatitude.value,
+      _locationController.currentLongitude.value,
     );
+        return GoogleMap(
+          onMapCreated: (GoogleMapController controller) {
+            mapController = controller;
+          },
+          initialCameraPosition: CameraPosition(
+            target: startLocation,
+
+            zoom: 18.0,
+          ),
+
+          myLocationEnabled: true,
+          myLocationButtonEnabled: true,
+          mapType: MapType.normal,
+          zoomControlsEnabled: true,
+          zoomGesturesEnabled: true,
+          scrollGesturesEnabled: true,
+        );
+      }
+    });
   }
 
   @override
