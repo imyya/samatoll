@@ -40,6 +40,7 @@ dependencies:
   dash_chat_2: ^0.0.21
   chat_gpt_sdk: ^3.1.5
   flutter_dotenv: ^6.0.0
+  google_generative_ai: ^0.4.7
 
   
 
@@ -64,13 +65,15 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
- assets:
-  - .env
+  uses-material-design: true
+  
+  assets:
+    - .env
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
-uses-material-design: true
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:

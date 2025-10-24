@@ -7,7 +7,6 @@ Future<void> main() async {
   await dotenv.load(fileName: ".env"); // ✅ Loads the .env file
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
