@@ -23,26 +23,27 @@ class TempHumidityChart extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Colors.orange.shade50, Colors.blue.shade50],
-          ),
+          //  border: Border.all(color: const Color.fromARGB(31, 139, 137, 137)),
+          // gradient: LinearGradient(
+          //   begin: Alignment.topLeft,
+          //   end: Alignment.bottomRight,
+          //   colors: [Colors.orange.shade50, Colors.blue.shade50],
+          // ),
           borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
-          ],
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: Colors.black.withOpacity(0.1),
+          //     blurRadius: 10,
+          //     offset: const Offset(0, 4),
+          //   ),
+          // ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
-                Icon(Icons.thermostat, color: Colors.orange.shade700),
+                Icon(Icons.thermostat, color: Colors.red.shade700),
                 const SizedBox(width: 8),
                 Text(
                   'Température & Humidité (24h)',
@@ -54,6 +55,7 @@ class TempHumidityChart extends StatelessWidget {
                 ),
               ],
             ),
+
             const SizedBox(height: 20),
             SizedBox(
               height: 250,
@@ -61,8 +63,8 @@ class TempHumidityChart extends StatelessWidget {
                 LineChartData(
                   gridData: FlGridData(
                     show: true,
-                    drawVerticalLine: false,
-                    horizontalInterval: 10,
+                    drawVerticalLine: true,
+                    horizontalInterval: 25,
                     getDrawingHorizontalLine: (value) {
                       return FlLine(
                         color: Colors.grey.shade300,
@@ -100,7 +102,7 @@ class TempHumidityChart extends StatelessWidget {
                             '${value.toInt()}°',
                             style: TextStyle(
                               fontSize: 10,
-                              color: Colors.orange.shade700,
+                              color: Colors.red.shade700,
                               fontWeight: FontWeight.bold,
                             ),
                           );
@@ -141,7 +143,7 @@ class TempHumidityChart extends StatelessWidget {
                           }).toList(),
                       isCurved: true,
                       gradient: LinearGradient(
-                        colors: [Colors.orange.shade400, Colors.red.shade400],
+                        colors: [Colors.red.shade200, Colors.red.shade900],
                       ),
                       barWidth: 4,
                       isStrokeCapRound: true,
@@ -150,7 +152,7 @@ class TempHumidityChart extends StatelessWidget {
                         getDotPainter: (spot, percent, barData, index) {
                           return FlDotCirclePainter(
                             radius: 4,
-                            color: Colors.orange.shade700,
+                            color: Colors.red.shade700,
                             strokeWidth: 2,
                             strokeColor: Colors.white,
                           );
@@ -160,8 +162,8 @@ class TempHumidityChart extends StatelessWidget {
                         show: true,
                         gradient: LinearGradient(
                           colors: [
-                            Colors.orange.shade200.withOpacity(0.3),
-                            Colors.orange.shade100.withOpacity(0.1),
+                            Colors.red.shade200.withOpacity(0.3),
+                            Colors.red.shade100.withOpacity(0.1),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -233,7 +235,7 @@ class TempHumidityChart extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _buildLegend(Colors.orange.shade700, 'Température'),
+                _buildLegend(Colors.red.shade700, 'Température'),
                 const SizedBox(width: 20),
                 _buildLegend(Colors.blue.shade700, 'Humidité'),
               ],

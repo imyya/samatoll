@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "58488867615",
+    "project_id": "samatoll-85d16",
+    "storage_bucket": "samatoll-85d16.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58488867615:android:e8da91c3252eea10677e2a",
+        "android_client_info": {
+          "package_name": "com.example.samatoll"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMYoyk8YjVANi5n4vT8dh8uksJ4g-kY1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

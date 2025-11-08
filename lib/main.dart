@@ -4,13 +4,12 @@ import 'package:samatoll/screens/home_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
-  await dotenv.load(fileName: ".env"); // ✅ Loads the .env file
-  runApp(MyApp());
+  await dotenv.load(fileName: ".env");
 }
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(  // GetMaterialApp au lieu de MaterialApp
+    return GetMaterialApp( 
       title: 'Sama Toll',
       theme: ThemeData(
         primarySwatch: Colors.green,

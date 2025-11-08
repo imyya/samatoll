@@ -3,6 +3,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:samatoll/controller/weather_controller.dart';
+import 'package:samatoll/model/forecast_weather.dart';
 
 class RainForecastChart extends StatelessWidget {
   const RainForecastChart({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class RainForecastChart extends StatelessWidget {
         return const Center(child: CircularProgressIndicator());
       }
 
-      final forecasts = controller.next5DaysAtNoon;
+      final List<ForecastItem> forecasts = controller.next5DaysAtNoon;
       if (forecasts.isEmpty) {
         return const Center(child: Text('Aucune donnée disponible'));
       }
@@ -24,18 +25,19 @@ class RainForecastChart extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.blue.shade50, Colors.white],
-          ),
+         // color:Colors.white70,
+          // gradient: LinearGradient(
+          //   begin: Alignment.topCenter,
+          //   end: Alignment.bottomCenter,
+          //   colors: [Colors.blue.shade50, Colors.white],
+          // ),
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
+            // BoxShadow(
+            //   color: Colors.black.withOpacity(0.1),
+            //   blurRadius: 10,
+            //   offset: const Offset(0, 4),
+            // ),
           ],
         ),
         child: Column(
@@ -188,7 +190,7 @@ class RainForecastChart extends StatelessWidget {
     });
   }
 
-  Widget _buildRainAdvice(List forecasts) {
+  Widget _buildRainAdvice(List<ForecastItem> forecasts) {
     final maxRainDay = forecasts.reduce((a, b) => a.pop > b.pop ? a : b);
     final hasHighRain = maxRainDay.pop > 0.6;
 
