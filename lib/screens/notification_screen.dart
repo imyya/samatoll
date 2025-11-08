@@ -1,7 +1,11 @@
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:samatoll/controller/notifications_controller.dart';
 
 class NotificationsScreen extends StatelessWidget {
+  final NotificationsController notificationsController = Get.put(
+    NotificationsController(),
+  );
   final List<Map<String, dynamic>> notifications = [
     {
       'title': 'Alerte Secheresse',
@@ -93,10 +97,7 @@ class NotificationsScreen extends StatelessWidget {
               children: [
                 Text(
                   notif['title'],
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 SizedBox(height: 4),
                 Text(
@@ -106,10 +107,7 @@ class NotificationsScreen extends StatelessWidget {
                 SizedBox(height: 8),
                 Text(
                   notif['time'],
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey[500],
-                  ),
+                  style: TextStyle(fontSize: 12, color: Colors.grey[500]),
                 ),
               ],
             ),
