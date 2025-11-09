@@ -35,6 +35,10 @@
 
 ### 🔔 Notifications
 - **Alertes météorologiques intelligentes** : Système d'alertes basé sur un modèle de prédiction d'humidité développé par l'équipe Data Science. Le backend analyse les données météorologiques en temps réel et envoie automatiquement une notification lorsque le seuil d'humidité critique est dépassé.
+<<<<<<< HEAD
+=======
+- Notifications push via Firebase
+>>>>>>> fe4f9c2 (last commit)
 - Rappels et avertissements importants
 
 ### 🗺️ Cartes
@@ -50,6 +54,10 @@
 - Chat IA (SamaToll Agent) avec ChatGPT/Gemini
 - Graphiques et visualisations
 - **Alertes météorologiques intelligentes** : Système d'alertes automatiques basé sur un modèle de prédiction d'humidité développé par l'équipe Data Science. Le backend surveille les données météorologiques et envoie des notifications lorsque le seuil d'humidité critique est atteint.
+<<<<<<< HEAD
+=======
+- Notifications push (Firebase)
+>>>>>>> fe4f9c2 (last commit)
 - Cartes interactives (Google Maps)
 - Géolocalisation
 
@@ -61,8 +69,11 @@
 - Analyse prédictive basée sur les données collectées
 - Recommandations personnalisées pour les cultures
 - Historique complet des parcelles
+<<<<<<< HEAD
 - Mise en place de notifications push (Firebase)
 
+=======
+>>>>>>> fe4f9c2 (last commit)
 
 ## 🛠️ Technologies Utilisées
 
@@ -174,11 +185,49 @@ Le projet utilise `flutter_dotenv` pour gérer les variables d'environnement. Cr
 - `OPENAI_API_KEY` : Clé API OpenAI pour le chat
 - `GEMINI_API_KEY` : Clé API Google Gemini (alternative)
 
+<<<<<<< HEAD
+=======
+### Architecture du Système d'Alertes
+
+Le système d'alertes météorologiques fonctionne selon l'architecture suivante :
+
+1. **Collecte de données** : Le backend récupère les données météorologiques en temps réel
+2. **Analyse prédictive** : Le modèle de prédiction d'humidité développé par l'équipe Data Science analyse ces données
+3. **Détection de seuil** : Lorsque le niveau d'humidité prédit dépasse le seuil critique configuré, le système déclenche une alerte
+4. **Notification** : L'alerte est envoyée à l'application mobile via Firebase Cloud Messaging (FCM)
+5. **Affichage** : L'application affiche la notification dans la section dédiée
+
+>>>>>>> fe4f9c2 (last commit)
 ### Permissions
 
 L'application nécessite les permissions suivantes :
 
 - **Localisation** : Pour obtenir les données météorologiques et afficher la carte
+<<<<<<< HEAD
+=======
+- **Notifications** : Pour recevoir les alertes push
+
+## 📱 Plateformes Supportées
+
+- ✅ Android
+- ✅ iOS
+- ✅ macOS
+- ✅ Linux
+- ✅ Windows
+- ✅ Web
+
+## 🎨 Captures d'écran
+
+_(Ajoutez vos captures d'écran ici)_
+
+## 🧪 Tests
+
+Pour exécuter les tests :
+
+```bash
+flutter test
+```
+>>>>>>> fe4f9c2 (last commit)
 
 ## 🤝 Contribution
 
@@ -190,6 +239,22 @@ Les contributions sont les bienvenues ! Pour contribuer :
 4. Push vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrez une Pull Request
 
+<<<<<<< HEAD
+=======
+## 📝 License
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+## 👥 Auteurs
+
+- **Votre Nom** - *Développement initial* - [VotreGitHub](https://github.com/votre-username)
+
+## 🙏 Remerciements
+
+- OpenWeatherMap pour l'API météorologique
+- L'équipe Flutter pour le framework
+- Tous les contributeurs de packages utilisés dans ce projet
+>>>>>>> fe4f9c2 (last commit)
 
 ## 📞 Support
 
